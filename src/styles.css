@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* On définit nos propres polices */
+
+@font-face {
+  font-family: "ExtraBold";
+  src: url(../public/assets/fonts/Nunito-ExtraBold.ttf);
+}
+
+@font-face {
+  font-family: "ExtraLight";
+  src: url(../public/assets/fonts/Nunito-Light.ttf);
+}
+
+.text-bold{
+  font-family: "ExtraBold";
+}
+
+.text-light{
+  font-family: "ExtraLight";
+}
+
+body{
+  min-height: 100vh;
+}

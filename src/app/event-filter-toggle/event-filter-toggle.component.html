@@ -1,0 +1,18 @@
+<section
+ *ngIf="showFilter"
+  class="flex flex-col lg:flex-row gap-5 w-[80%] mx-auto justify-between mt-8 items-center"
+>
+  <div class="flex items-center">
+    <span class="translate-x-5">
+      <i class="bi bi-search  text-gray-400"></i>
+    </span>
+    <input
+      (input)="setSearch($event)"
+      type="search"
+      class="py-2 ps-8 w-[250px] md:w-[375px] border font-light ring-2 rounded-lg ring-neutral-50 focus:ring-red-500 outline-none"
+      name="search-query"
+      id="query"
+      placeholder="Rechercher un outils ..."
+    />
+  </div>
+  

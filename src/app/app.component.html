@@ -1,0 +1,5 @@
+<ng-container *ngIf="!isLoginPage()">
+	<app-welcome-banner />
+</ng-container>
+<app-event-filter-toggle *ngIf="!isLoginPage()" />
+<router-outlet />

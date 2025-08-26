@@ -1,0 +1,18 @@
+<section id="events" class="w-[90%] md:[80%] mx-auto mt-5 animated-gradient-bg rounded-3xl overflow-hidden shadow-lg relative">
+  <div class="particles-bg" aria-hidden="true">
+    <div class="particle" *ngFor="let p of [].constructor(18)"></div>
+  </div>
+  <ul
+    class="flex justify-center flex-wrap gap-8 place-items-center content-center"
+  >
+    <app-event-card-component
+      *ngFor="let evenement of evenementService.listsEvents; let i = index"
+      [evenement]="evenement"
+      [ngStyle]="{'--card-index': i}"
+    />
+  </ul>
+
+  <div *ngIf="evenementService.listsEvents.length === 0" >
+      <p class="text-gray-400 font-medium text-center m-5">Aucun résultat correspondant à votre recherche.</p>
+  </div>
+</section>
