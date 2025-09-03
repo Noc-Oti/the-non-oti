@@ -19,13 +19,22 @@ export class LoginComponent {
   constructor(private router: Router) {}
 
   login() {
-    // Simple login logic (à remplacer par un vrai service plus tard)
-    if (this.email && this.password) {
-      localStorage.setItem('isLoggedIn', 'true');
-      localStorage.setItem('userEmail', this.email);
-      this.router.navigate(['/home']);
-    } else {
-      this.error = 'Identifiants invalides';
-    }
+      const gmailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+      if (!gmailRegex.test(this.email)) {
+        this.error = "L'adresse email doit être 'votregmail@gmail.com'";
+        return;
+      }
+      const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/;
+      if (!passwordRegex.test(this.password)) {
+        this.error = "Le mot de passe doit contenir au moins 8 caractères, des lettres, des chiffres et un caractère spécial.";
+        return;
+      }
+      if (this.email && this.password) {
+        localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('userEmail', this.email);
+        this.router.navigate(['/dashboard']);
+      } else {
+        this.error = 'Identifiants invalides';
+      }
   }
 }

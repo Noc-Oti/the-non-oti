@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { IEvenement } from '../models/event.interface';
 import { CommonModule,  } from '@angular/common';
-import { ModalService } from '../services/modal.service';
+//import { ModalService } from '../services/modal.service';
 
 @Component({
   selector: 'app-event-card-component',
@@ -12,10 +12,10 @@ import { ModalService } from '../services/modal.service';
 export class EventCardComponentComponent {
   @Input() evenement!: IEvenement;
 
-  constructor(private modalService: ModalService) {}
+  //onstructor(private modalService: ModalService) {}
 
   
-  openModal() {
+  /*openModal() {
     this.modalService.openModal(this.evenement);
-  }
+  }*/
 }

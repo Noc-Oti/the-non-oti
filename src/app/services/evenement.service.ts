@@ -7,42 +7,55 @@ export class EvenementService {
   public listsEvents: IEvenement[] = [
     {
       
-      description: "outils de méssagerie",
+      description: "Méssagerie",
+      titre: "Outils de méssagerie",
       image: '/assets/roundcube.png',
       lien: 'https://mail.otitelecom.com/'
     },
     {
-      description: "outil de gestion des tickets incidents",
-      image: '/assets/logo2.png',
+      description: "Gestion des tickets incidents",
+      titre: "Outils de gestion des tickets",
+      image: '/assets/GLPI.png',
       lien: 'https://gestion.otitelecom.com/'
     },
     {
-      description: "Outil de supervision et de monitoring",
+      description: "Supervision et monitoring",
+      titre: "Outils de supervision et de monitoring",
       image: '/assets/zabbix-integration.png',
       lien: 'https://supervision.otitelecom.com/'
     },
     {
-      description: "Outil de gestion des wifi",
+      description: "Gestion des wifi",
+      titre: "Outils de gestion des wifi",
       image: '/assets/omada.png',
       lien: 'https://omada.otitelecom.com/'
     },
     {
-      description: "Outils d'authentification",
+      description: "Authentification",
+      titre: "service d'authentification",
       image: '/assets/radius.png',
       lien: 'https://3a.otitelecom.com/'
     },
     {
-     
+
       description: "Site web de OTI.",
+      titre: "Site web de OTI.",
       image: '/assets/cropped-favicon-1-300x300-1-150x150.png',
-      lien: 'https://redmine.otitelecom.com/'
+      lien: 'https://otitelecom.com/'
     },
     {
       description: "Cloud spot",
-      image: '/assets/reseau-sans-fil-icone-wifi_153097-201.avif',
+      titre: "Outils de Cloud spot",
+      image: '/assets/cloudspot-wifi.png',
       lien: 'https://wifi.lc'
     },
-
+    {
+      description: "gestion des projets",
+      titre: "Outils de gestion des projets",
+      image: '/assets/redmine.png',
+      lien: 'https://redmine.otitelecom.com/'
+    },
+    
   ];
 
   //faire une copie pour éviter de modifier accidentenllement nos données pendant la manipulation ou

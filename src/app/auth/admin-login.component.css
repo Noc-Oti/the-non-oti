@@ -1,0 +1,11 @@
+body {
+  background: #f3f4f6;
+}
+
+input:focus {
+  border-color: #ef4444;
+}
+
+button {
+  outline: none;
+}

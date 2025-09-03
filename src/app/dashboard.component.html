@@ -1,0 +1,230 @@
+<div class="flex min-h-screen bg-gray-100 dark:bg-gray-900 dark:text-white">
+  <!-- Sidebar -->
+  <aside [class.w-64]="!sidebarCollapsed" [class.w-20]="sidebarCollapsed" class="bg-white dark:bg-gray-900 dark:text-white shadow-lg flex flex-col transition-all duration-300">
+    <div class="px-6 py-8 flex items-center gap-2 border-b">
+      <img src="assets/cropped-favicon-1-300x300-1-150x150.png" class="h-12" alt="Logo" />
+      <span *ngIf="!sidebarCollapsed" class="font-bold text-lg text-blue-700">Gestion des outils</span>
+    </div>
+    <nav class="flex-1 px-6 py-4">
+      <ul class="space-y-2">
+        <!-- Tableau de bord -->
+        <li class="flex items-center gap-2 text-gray-700 px-3 py-2 rounded-lg cursor-pointer hover:bg-blue-50" [ngClass]="{'bg-blue-100': selectedSection === 'dashboard', 'flex-col': sidebarCollapsed, 'flex-row': !sidebarCollapsed}" (click)="navigateTo('dashboard')">
+          <svg [ngClass]="{'w-6 h-6': !sidebarCollapsed, 'w-8 h-8': sidebarCollapsed}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9.75V20a.75.75 0 0 0 .75.75H8A.75.75 0 0 0 8.75 20v-4.25a.75.75 0 0 1 .75-.75h4a.75.75 0 0 1 .75.75V20A.75.75 0 0 0 16 20h4.25a.75.75 0 0 0 .75-.75V9.75a.75.75 0 0 0-.22-.53l-8-8a.75.75 0 0 0-1.06 0l-8 8a.75.75 0 0 0-.22.53Z"/></svg>
+          <span *ngIf="!sidebarCollapsed" class="text-lg">Tableau de bord</span>
+        </li>
+        <!-- Outils -->
+        <li class="flex items-center gap-2 text-gray-700 px-3 py-2 rounded-lg cursor-pointer hover:bg-blue-50" [ngClass]="{'bg-blue-100': selectedSection === 'tools', 'flex-col': sidebarCollapsed, 'flex-row': !sidebarCollapsed}" (click)="navigateTo('tools')">
+          <svg [ngClass]="{'w-6 h-6': !sidebarCollapsed, 'w-8 h-8': sidebarCollapsed}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span *ngIf="!sidebarCollapsed">Outils</span>
+        </li>
+        <!-- Utilisateurs -->
+        <li class="flex items-center gap-2 text-gray-700 px-3 py-2 rounded-lg cursor-pointer hover:bg-blue-50" [ngClass]="{'bg-blue-100': selectedSection === 'users', 'flex-col': sidebarCollapsed, 'flex-row': !sidebarCollapsed}" (click)="navigateTo('users')">
+          <svg [ngClass]="{'w-6 h-6': !sidebarCollapsed, 'w-8 h-8': sidebarCollapsed}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5s-3 1.34-3 3 1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05C15.64 13.36 17 14.28 17 15.5V19h7v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+          <span *ngIf="!sidebarCollapsed">Utilisateurs</span>
+        </li>
+        <!-- Paramètres -->
+        <li class="flex items-center gap-2 text-gray-700 px-3 py-2 rounded-lg cursor-pointer hover:bg-blue-50" [ngClass]="{'bg-blue-100': selectedSection === 'settings', 'flex-col': sidebarCollapsed, 'flex-row': !sidebarCollapsed}" (click)="navigateTo('settings')">
+          <svg [ngClass]="{'w-6 h-6': !sidebarCollapsed, 'w-8 h-8': sidebarCollapsed}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1c.13-.31.19-.65.33-.97a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33c.32-.14.66-.2.97-.33A1.65 1.65 0 0 0 11 3.09V3a2 2 0 0 1 4 0v.09c.31.13.65.19.97.33a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82c.14.32.2.66.33.97a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1c-.13.31-.19.65-.33.97z"/></svg>
+          <span *ngIf="!sidebarCollapsed">Paramètres</span>
+        </li>
+      </ul>
+    </nav>
+    <!-- Bouton de déconnexion en bas du sidebar -->
+    <div class="mt-auto px-6 pb-6">
+      <button class="flex items-center gap-2 w-full px-3 py-2 bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 rounded-lg hover:bg-red-200 dark:hover:bg-red-800 transition-colors" (click)="logout()">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 16l4-4m0 0l-4-4m4 4H7"/><path d="M7 8v8a4 4 0 0 0 4 4h1"/></svg>
+        <span>Déconnexion</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main content -->
+  <div class="flex-1 flex flex-col">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-red-500 to-indigo-500 px-8 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+  <button class="text-white" (click)="toggleSidebar()"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+        <span class="text-white font-bold text-xl">Bienvenue sur le dashboard</span>
+      </div>
+      <div class="flex items-center gap-4">
+    <input type="text" placeholder="Recherche..." class="px-3 py-2 rounded-lg border focus:outline-none" [(ngModel)]="search" />
+        <div class="flex items-center gap-2">
+          <img [src]="userAvatar" class="h-8 w-8 rounded-full object-cover" alt="Profil utilisateur" />
+        </div>
+      </div>
+    </header>
+
+  <!-- Filtre outils retiré, la recherche est dans le header -->
+    <!-- Affichage dynamique selon la section sélectionnée -->
+    <ng-container [ngSwitch]="selectedSection">
+      <!-- Tableau de bord : affiche les outils -->
+      <div *ngSwitchCase="'dashboard'">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-4 pb-8 mt-8"> <!-- Ajout mt-8 pour décoller du header -->
+          <div *ngFor="let outil of outilsFiltres" class="bg-white dark:bg-gray-900 dark:text-white rounded-2xl shadow-md flex flex-col gap-4 p-6 min-h-[180px] transition duration-200 hover:shadow-xl cursor-pointer">
+            <div class="flex flex-col items-start gap-2">
+              <div class="flex items-center justify-center w-12 h-12 mb-2">
+                <img [src]="outil.image" alt="logo outil" />
+              </div>
+              <span class="font-bold text-lg text-gray-800 dark:text-white">{{ outil.description }}</span>
+            </div>
+            <div class="text-gray-500 dark:text-gray-300 text-sm">{{ outil.titre || 'Outil de gestion ou service associé' }}</div>
+            <a [href]="outil.lien" target="_blank" class="flex items-center gap-2 text-red-400 font-bold hover:red-600 underline mt-auto">
+              Accéder
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Outils : affiche un texte ou une grille spécifique -->
+      <div *ngSwitchCase="'tools'">
+  <h2 class="text-xl font-bold mb-4 dark:text-white">Gestion des outils</h2>
+  <div class="overflow-x-auto mt-6"> <!-- Ajout d'une marge supérieure -->
+    <table class="min-w-full bg-white dark:bg-gray-900 rounded-3xl shadow-lg">
+      <thead>
+        <tr class="bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-t-3xl">
+          <th class="px-4 py-2 text-left">ID</th>
+          <th class="px-4 py-2 text-left">Nom</th>
+          <th class="px-4 py-2 text-left">Description</th>
+          <th class="px-4 py-2 text-left">Lien</th>
+          <th class="px-4 py-2 text-left">Logo</th>
+          <th class="px-4 py-2 text-left">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let outil of outilsFiltres; let i = index" class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all rounded-2xl">
+          <td class="px-4 py-2">{{ i + 1 }}</td>
+          <td class="px-4 py-2 font-semibold">{{ outil.titre }}</td>
+          <td class="px-4 py-2">{{ outil.description }}</td>
+          <td class="px-4 py-2">
+            <a [href]="outil.lien" target="_blank" class="text-blue-500 hover:underline">Accéder</a>
+          </td>
+          <td class="px-4 py-2">
+            <img [src]="outil.image" alt="logo outil" class="w-10 h-10 object-contain rounded-full shadow" />
+          </td>
+          <td class="px-4 py-2 flex gap-2">
+            <button class="bg-red-400 hover:bg-red-600 text-white px-4 py-2 rounded-full shadow transition-colors" (click)="modifierOutil(outil, i)">Modifier</button>
+            <button class="bg-red-400 hover:bg-red-600 text-white px-4 py-2 rounded-full shadow transition-colors" (click)="supprimerOutil(outil, i)">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="flex justify-end mt-4">
+      <button class="flex items-center gap-2 bg-red-400 hover:bg-red-600 text-white font-bold px-6 py-3 rounded-full shadow-lg transition" (click)="ajouterOutil()">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v8m-4-4h8"/></svg>
+        Ajouter un outil
+      </button>
+    </div>
+  </div>
+      </div>
+      <!-- Utilisateurs : affiche la liste des utilisateurs -->
+      <div *ngSwitchCase="'users'">
+  <h2 class="text-xl font-bold mb-4 dark:text-white">Liste des utilisateurs</h2>
+  <div class="overflow-x-auto">
+    <table class="min-w-full bg-white dark:bg-gray-900 rounded-lg shadow-md">
+      <thead>
+        <tr class="bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300">
+          <th class="px-4 py-2 text-left">ID</th>
+          <th class="px-4 py-2 text-left">Nom</th>
+          <th class="px-4 py-2 text-left">Prénom</th>
+          <th class="px-4 py-2 text-left">Email</th>
+          <th class="px-4 py-2 text-left">Rôle</th>
+          <th class="px-4 py-2 text-left">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users; let i = index" class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800">
+          <td class="px-4 py-2">{{ i + 1 }}</td>
+          <td class="px-4 py-2 font-semibold">{{ user.nom }}</td>
+          <td class="px-4 py-2">{{ user.prenom }}</td>
+          <td class="px-4 py-2">{{ user.email }}</td>
+          <td class="px-4 py-2">{{ user.role }}</td>
+          <td class="px-4 py-2">
+            <button class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded transition-colors" (click)="supprimerUtilisateur(user)">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+      </div>
+      <!-- Paramètres -->
+      <div *ngSwitchCase="'settings'">
+  <div class="flex flex-col items-center mb-8">
+    <h2 class="text-3xl font-bold text-blue-600 flex items-center gap-2 mb-2">
+      <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1c.13-.31.19-.65.33-.97a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33c.32-.14.66-.2.97-.33A1.65 1.65 0 0 0 11 3.09V3a2 2 0 0 1 4 0v.09c.31.13.65.19.97.33a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82c.14.32.2.66.33.97a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1c-.13.31-.19.65-.33.97z"/>
+        <circle cx="12" cy="12" r="3"/>
+      </svg>
+      Paramètres
+    </h2>
+    <p class="text-gray-500">Personnalisez votre expérience utilisateur</p>
+  </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 px-4 pb-8">
+          <!-- Carte Compte -->
+          <div class="bg-white dark:bg-gray-900 dark:text-white rounded-2xl shadow-md flex flex-col gap-2 p-6 min-h-[140px]">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="bg-blue-100 text-blue-600 rounded-full p-2">
+                <i class="bi bi-person-circle text-3xl"></i>
+              </span>
+              <span class="font-bold text-lg dark:text-white">Compte</span>
+            </div>
+            <div class="text-gray-500 dark:text-gray-300 text-sm mb-2">Gérez vos informations personnelles</div>
+            <a class="text-blue-500 font-bold flex items-center gap-1 hover:underline" href="#">Modifier <span>&rarr;</span></a>
+          </div>
+          <!-- Carte Sécurité -->
+          <div class="bg-white dark:bg-gray-900 dark:text-white rounded-2xl shadow-md flex flex-col gap-2 p-6 min-h-[140px]">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="bg-green-100 text-green-600 rounded-full p-2">
+                <i class="bi bi-shield-lock text-3xl"></i>
+              </span>
+              <span class="font-bold text-lg dark:text-white">Sécurité</span>
+            </div>
+            <div class="text-gray-500 dark:text-gray-300 text-sm mb-2">Protégez votre compte</div>
+            <a class="text-blue-500 font-bold flex items-center gap-1 hover:underline" href="#">Paramétrer <span>&rarr;</span></a>
+          </div>
+          <!-- Carte Apparence -->
+          <div class="bg-white dark:bg-gray-900 dark:text-white rounded-2xl shadow-md flex flex-col gap-2 p-6 min-h-[140px]">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="bg-cyan-100 text-cyan-600 rounded-full p-2">
+                <i class="bi bi-moon-stars text-3xl"></i>
+              </span>
+              <span class="font-bold text-lg dark:text-white">Apparence</span>
+            </div>
+            <div class="text-gray-500 dark:text-gray-300 text-sm mb-2">Mode sombre</div>
+            <label class="flex items-center cursor-pointer mt-2">
+              <div class="relative">
+                <input type="checkbox" class="sr-only peer" [checked]="isDarkMode()" (change)="toggleDarkMode()">
+                <div class="w-10 h-6 bg-gray-300 rounded-full peer-checked:bg-cyan-600 transition"></div>
+                <div class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow peer-checked:translate-x-4 transition-transform"></div>
+              </div>
+              <span class="ml-3 text-gray-700">Activer le mode sombre</span>
+            </label>
+          </div>
+          <!-- Carte Langue -->
+          <div class="bg-white dark:bg-gray-900 dark:text-white rounded-2xl shadow-md flex flex-col gap-2 p-6 min-h-[140px] relative">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="bg-red-100 text-red-600 rounded-full p-2">
+                <i class="bi bi-translate text-3xl"></i>
+              </span>
+              <span class="font-bold text-lg dark:text-white">Langue</span>
+            </div>
+            <div class="text-gray-500 dark:text-gray-300 text-sm mb-2">Choisissez votre langue préférée</div>
+            <button class="text-blue-500 font-bold flex items-center gap-1 hover:underline focus:outline-none" (click)="toggleMenuLangue()">
+              Sélectionner
+              <svg class="w-5 h-5 transition-transform duration-200" [ngClass]="{'rotate-180': menuLangueOuvert}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div *ngIf="menuLangueOuvert" class="absolute top-full left-0 mt-2 w-full bg-white dark:bg-gray-900 rounded-xl shadow-lg z-10 border dark:border-gray-700">
+              <ul>
+                <li *ngFor="let langue of langues" (click)="changerLangue(langue.code)" class="px-4 py-2 cursor-pointer hover:bg-blue-100 dark:hover:bg-gray-800 rounded flex items-center justify-between" [class.font-bold]="langueSelectionnee === langue.code">
+                  <span>{{ langue.label }}</span>
+                  <span *ngIf="langueSelectionnee === langue.code" class="text-blue-500">✔</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+  
+  </div>
+</div>

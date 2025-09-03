@@ -1,14 +1,14 @@
     
 <a [href]="evenement.lien" target="_blank" style="text-decoration: none;">
   <li
-    class="relative group flex flex-col items-center justify-center transition"
-    style="background: none; border: none; box-shadow: none; width: auto; height: auto; padding: 0; margin: 0 18px;"
+    class="relative group flex flex-col items-center justify-center transition bg-white dark:bg-gray-900 dark:text-white rounded-xl shadow-md p-4"
+    style="width: auto; height: auto; margin: 0 18px;"
   >
     <img
       class="object-contain max-h-[100px] max-w-[100px] w-auto h-auto"
       [src]="evenement.image"
-     
     />
-
+    <span class="mt-2 font-bold text-gray-800 dark:text-white">{{ evenement.description }}</span>
+    <span class="text-gray-500 dark:text-gray-300 text-sm">{{ evenement.titre }}</span>
   </li>
 </a>
