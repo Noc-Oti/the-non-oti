@@ -13,6 +13,7 @@ import { EventFilterToggleComponent } from './event-filter-toggle/event-filter-t
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
+  userRole: string = localStorage.getItem('userRole') || 'Utilisateur';
   supprimerUtilisateur(user: any) {
     const confirmation = confirm(`Voulez-vous vraiment supprimer l'utilisateur ${user.nom} ?`);
     if (confirmation) {
@@ -20,15 +21,23 @@ export class DashboardComponent {
     }
   }
   ajouterOutil() {
-    localStorage.setItem('actionAdmin', 'ajout');
-    this.router.navigate(['/admin-login']);
+    if (this.userRole === 'Admin') {
+      this.router.navigate(['/ajout-outil']);
+    } else {
+      localStorage.setItem('actionAdmin', 'ajout');
+      this.router.navigate(['/admin-login']);
+    }
   }
   // Action : Modifier un outil
   modifierOutil(outil: any, index: number) {
     // Stocke l’outil à modifier pour le formulaire
     localStorage.setItem('outilAModifier', JSON.stringify({ ...outil, index }));
-    localStorage.setItem('actionAdmin', 'modif');
-    this.router.navigate(['/admin-login']);
+    if (this.userRole === 'Admin') {
+      this.router.navigate(['/ajout-outil']);
+    } else {
+      localStorage.setItem('actionAdmin', 'modif');
+      this.router.navigate(['/admin-login']);
+    }
   }
 
   // Action : Supprimer un outil

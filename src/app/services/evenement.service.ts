@@ -6,55 +6,60 @@ export class EvenementService {
   
   public listsEvents: IEvenement[] = [
     {
-      
-      description: "Méssagerie",
-      titre: "Outils de méssagerie",
-      image: '/assets/roundcube.png',
+      titre: "Web Mail OTI ",
+      description: "Outils de méssagerie",
+      image: 'assets/Roundcube-Logo-Icon-2048x2048.webp',
       lien: 'https://mail.otitelecom.com/'
     },
     {
-      description: "Gestion des tickets incidents",
-      titre: "Outils de gestion des tickets",
-      image: '/assets/GLPI.png',
+      titre: "GLPI",
+      description: "Outils de gestion des tickets",
+      image: 'assets/GLPI_Logo-color.webp',
       lien: 'https://gestion.otitelecom.com/'
     },
     {
-      description: "Supervision et monitoring",
-      titre: "Outils de supervision et de monitoring",
-      image: '/assets/zabbix-integration.png',
+      description: "Outil de supervision et monitoring",
+      titre: "Zabbix",
+      image: '/assets/zabbix.webp',
       lien: 'https://supervision.otitelecom.com/'
     },
     {
-      description: "Gestion des wifi",
-      titre: "Outils de gestion des wifi",
-      image: '/assets/omada.png',
+      description: "Outil de gestion des wifi",
+      titre: "Omada",
+      image: 'assets/omada-removebg-preview.png',
       lien: 'https://omada.otitelecom.com/'
     },
     {
-      description: "Authentification",
-      titre: "service d'authentification",
-      image: '/assets/radius.png',
+      description: "Outil d'authentification",
+      titre: "Radius manager",
+      image: 'assets/radius-removebg-preview.png',
       lien: 'https://3a.otitelecom.com/'
     },
     {
 
       description: "Site web de OTI.",
-      titre: "Site web de OTI.",
+      titre: "otitelecom.com",
       image: '/assets/cropped-favicon-1-300x300-1-150x150.png',
       lien: 'https://otitelecom.com/'
     },
     {
-      description: "Cloud spot",
-      titre: "Outils de Cloud spot",
-      image: '/assets/cloudspot-wifi.png',
+      description: "Outils de Wifi géré",
+      titre: "Cloud spot",
+      image: '/assets/cloudspot_wifi-removebg-preview.png',
       lien: 'https://wifi.lc'
     },
     {
-      description: "gestion des projets",
-      titre: "Outils de gestion des projets",
-      image: '/assets/redmine.png',
+      description: "Outil de gestion des projets",
+      titre: "Redmine",
+      image: "/assets/re3601r2f2-redmine-logo-redmine-boss-insights.png",
       lien: 'https://redmine.otitelecom.com/'
     },
+    {
+      description: "Outil de gestion des mots de passe",
+      titre: "OPNsense",
+      image: "/assets/bitwarden-logo.png",
+      lien: 'https://vault.otitelecom.com/'
+    }
     
   ];
 

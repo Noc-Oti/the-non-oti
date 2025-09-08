@@ -19,9 +19,9 @@ export class LoginComponent {
   constructor(private router: Router) {}
 
   login() {
-      const gmailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+      const gmailRegex = /^[a-zA-Z0-9._%+-]+@otitelecom\.com$/;
       if (!gmailRegex.test(this.email)) {
-        this.error = "L'adresse email doit être 'votregmail@gmail.com'";
+        this.error = "L'adresse email doit être 'votregmailotitelecom.com'";
         return;
       }
       const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/;
@@ -32,9 +32,27 @@ export class LoginComponent {
       if (this.email && this.password) {
         localStorage.setItem('isLoggedIn', 'true');
         localStorage.setItem('userEmail', this.email);
+        localStorage.setItem('userRole', 'Utilisateur');
         this.router.navigate(['/dashboard']);
       } else {
         this.error = 'Identifiants invalides';
       }
   }
+
+  goToAdminLogin() {
+    this.router.navigate(['/admin-login']);
+  }
+  
+
+  toggleDarkMode() {
+    const html = document.documentElement;
+    if (html.classList.contains('dark')) {
+      html.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    } else {
+      html.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    }
+  }
+  
 }

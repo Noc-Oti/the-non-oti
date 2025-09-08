@@ -18,7 +18,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'EventManager';
+  title = 'OTI Tools';
 
   constructor(private router: Router) {
     const darkMode = localStorage.getItem('darkMode');
@@ -47,4 +47,5 @@ export class AppComponent {
       localStorage.setItem('darkMode', 'true');
     }
   }
+  
 }

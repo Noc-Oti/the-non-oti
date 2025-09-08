@@ -25,9 +25,9 @@ import { FormsModule } from '@angular/forms';
           </div>
           <form (ngSubmit)="enregistrer()" class="space-y-4">
             <div>
-              <label class="block font-semibold mb-1">Logo <span class="text-xs text-gray-400">(URL ou chemin)</span></label>
-              <input type="text" [(ngModel)]="logo" name="logo" class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-800 dark:text-white" placeholder="Ex: /assets/monlogo.png" />
-              
+              <label class="block font-semibold mb-1">Logo <span class="text-xs text-gray-400">(URL ou image locale)</span></label>
+              <input type="text" [(ngModel)]="logo" name="logo" class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-800 dark:text-white mb-2" placeholder="Ex: /assets/monlogo.png" />
+              <input type="file" accept="image/*" (change)="onFileSelected($event)" class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-800 dark:text-white" />
             </div>
             <div>
               <label class="block font-semibold mb-1">Nom de l'outil <span class="text-red-500">*</span></label>
@@ -53,6 +53,16 @@ import { FormsModule } from '@angular/forms';
   styleUrls: []
 })
 export class AjoutOutilComponent {
+  onFileSelected(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.logo = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+  }
   annuler() {
     window.location.href = '/dashboard';
   }

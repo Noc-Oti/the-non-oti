@@ -1,6 +1,6 @@
 export interface IEvenement{
+   titre: string;
   description: string;
-  titre: string;
   image: string;
   lien: string; // Lien externe (Google, etc.)
 }

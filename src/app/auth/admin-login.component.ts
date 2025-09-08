@@ -19,7 +19,7 @@ export class AdminLoginComponent {
 
   login() {
     // Vérification : email doit être sous la forme @otitelecom.com
-    const emailAdminRegex = /^[a-zA-Z0-9._%+-]+@otitelecom\.com$/;
+    const emailAdminRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
     if (!emailAdminRegex.test(this.email)) {
       this.error = "email incorrect.";
       return;
@@ -36,4 +36,5 @@ export class AdminLoginComponent {
   localStorage.removeItem('actionAdmin');
   this.router.navigate(['/ajout-outil']);
   }
+  
 }

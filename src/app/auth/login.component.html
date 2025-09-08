@@ -6,6 +6,7 @@
     <div class="absolute w-72 h-72 bg-red-500 rounded-full opacity-5 animate-pulse bottom-0 left-20 dark:bg-gray-700"></div>
   </div>
 
+
   <!-- Formulaire de connexion -->
   <div class="bg-white bg-opacity-90 dark:bg-gray-900 dark:bg-opacity-95 p-8 rounded-2xl shadow-xl w-full max-w-sm relative z-10">
     <!-- Logo -->
@@ -32,10 +33,7 @@
       </div>
 
       <div *ngIf="error" class="mb-4 text-red-500 dark:text-red-400 text-center font-medium">{{ error }}</div>
-
-      <button type="submit" class="w-full bg-red-500 dark:bg-red-500 text-blue-900 dark:text-white font-bold py-2 rounded-lg shadow-lg hover:bg-red-600 dark:hover:bg-cyan-800 hover:scale-105 transition transform">
-        Se connecter
-      </button>
+  <button type="submit" class="w-full bg-red-500 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-full shadow-lg transition">Se connecter</button>
     </form>
   </div>
 </div>
